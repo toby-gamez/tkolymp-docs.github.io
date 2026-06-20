@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TK Olymp – Legal Documents</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">TK Olymp</a>
+    <div class="lang-switcher" id="langSwitcher"></div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1 id="heroTitle">Legal Documents</h1>
+      <p id="heroSubtitle">Official legal documents for the TK Olymp app</p>
+    </div>
+    <div class="doc-grid">
+      <a href="privacy/" class="doc-card" id="privacyLink">
+        <div class="card-icon">🔒</div>
+        <div class="card-title" id="privacyTitle">Privacy Policy</div>
+        <div class="card-desc" id="privacyDesc">How we handle your data</div>
+      </a>
+      <a href="terms/" class="doc-card" id="termsLink">
+        <div class="card-icon">📄</div>
+        <div class="card-title" id="termsTitle">Terms of Use</div>
+        <div class="card-desc" id="termsDesc">Rules for using the app</div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div>© 2026 TK Olymp</div>
+    <div class="footer-links">
+      <a href="privacy/" id="footerPrivacy">Privacy Policy</a>
+      <a href="terms/" id="footerTerms">Terms of Use</a>
+    </div>
+  </footer>
+
+  <script>
+  const LANGS = {
+    en: { name: "English", heroTitle: "Legal Documents", heroSubtitle: "Official legal documents for the TK Olymp app", privacyTitle: "Privacy Policy", privacyDesc: "How we handle your data", termsTitle: "Terms of Use", termsDesc: "Rules for using the app" },
+    cs: { name: "Česky",   heroTitle: "Právní dokumenty", heroSubtitle: "Oficiální právní dokumenty aplikace TK Olymp", privacyTitle: "Zásady ochrany osobních údajů", privacyDesc: "Jak nakládáme s vašimi daty", termsTitle: "Podmínky používání", termsDesc: "Pravidla používání aplikace" },
+    de: { name: "Deutsch", heroTitle: "Rechtsdokumente", heroSubtitle: "Offizielle Rechtsdokumente der TK-Olymp-App", privacyTitle: "Datenschutzrichtlinie", privacyDesc: "Wie wir mit Ihren Daten umgehen", termsTitle: "Nutzungsbedingungen", termsDesc: "Regeln für die Nutzung der App" },
+    sk: { name: "Slovensky", heroTitle: "Právne dokumenty", heroSubtitle: "Oficiálne právne dokumenty aplikácie TK Olymp", privacyTitle: "Zásady ochrany osobných údajov", privacyDesc: "Ako nakladáme s vašimi údajmi", termsTitle: "Podmienky používania", termsDesc: "Pravidlá používania aplikácie" },
+    sl: { name: "Slovenščina", heroTitle: "Pravni dokumenti", heroSubtitle: "Uradni pravni dokumenti aplikacije TK Olymp", privacyTitle: "Politika zasebnosti", privacyDesc: "Kako ravnamo z vašimi podatki", termsTitle: "Pogoji uporabe", termsDesc: "Pravila za uporabo aplikacije" },
+    uk: { name: "Українська", heroTitle: "Правові документи", heroSubtitle: "Офіційні правові документи додатку TK Olymp", privacyTitle: "Політика конфіденційності", privacyDesc: "Як ми обробляємо ваші дані", termsTitle: "Умови використання", termsDesc: "Правила використання додатку" },
+    vi: { name: "Tiếng Việt", heroTitle: "Tài liệu pháp lý", heroSubtitle: "Tài liệu pháp lý chính thức của ứng dụng TK Olymp", privacyTitle: "Chính sách bảo mật", privacyDesc: "Cách chúng tôi xử lý dữ liệu của bạn", termsTitle: "Điều khoản sử dụng", termsDesc: "Quy tắc sử dụng ứng dụng" },
+  };
+
+  function detectLang() {
+    const p = new URLSearchParams(window.location.search).get('lang');
+    if (p && LANGS[p]) return p;
+    const stored = localStorage.getItem('tkolymp-lang');
+    if (stored && LANGS[stored]) return stored;
+    const bl = (navigator.language || 'en').split('-')[0];
+    // map "ua" browser codes to "uk"
+    const mapped = bl === 'ua' ? 'uk' : bl;
+    return LANGS[mapped] ? mapped : 'en';
+  }
+
+  function applyLang(lang) {
+    localStorage.setItem('tkolymp-lang', lang);
+    const L = LANGS[lang];
+    document.getElementById('heroTitle').textContent = L.heroTitle;
+    document.getElementById('heroSubtitle').textContent = L.heroSubtitle;
+    document.getElementById('privacyTitle').textContent = L.privacyTitle;
+    document.getElementById('privacyDesc').textContent = L.privacyDesc;
+    document.getElementById('termsTitle').textContent = L.termsTitle;
+    document.getElementById('termsDesc').textContent = L.termsDesc;
+    document.getElementById('footerPrivacy').textContent = L.privacyTitle;
+    document.getElementById('footerTerms').textContent = L.termsTitle;
+    document.getElementById('privacyLink').href = `privacy/?lang=${lang}`;
+    document.getElementById('termsLink').href = `terms/?lang=${lang}`;
+    document.getElementById('footerPrivacy').href = `privacy/?lang=${lang}`;
+    document.getElementById('footerTerms').href = `terms/?lang=${lang}`;
+    document.title = `TK Olymp – ${L.heroTitle}`;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    const url = new URL(window.location);
+    url.searchParams.set('lang', lang);
+    history.replaceState({}, '', url);
+  }
+
+  const switcher = document.getElementById('langSwitcher');
+  Object.entries(LANGS).forEach(([code, data]) => {
+    const btn = document.createElement('button');
+    btn.className = 'lang-btn';
+    btn.dataset.lang = code;
+    btn.textContent = data.name;
+    btn.onclick = () => applyLang(code);
+    switcher.appendChild(btn);
+  });
+
+  applyLang(detectLang());
+  </script>
+</body>
+</html>

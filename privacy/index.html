@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – TK Olymp</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="logo">TK Olymp</a>
+    <div class="lang-switcher" id="langSwitcher"></div>
+  </header>
+
+  <main>
+    <div class="breadcrumb"><a href="../" id="breadcrumbHome">Home</a> / <span id="breadcrumbCurrent">Privacy Policy</span></div>
+    <div class="doc-header">
+      <h1 class="doc-page-title" id="pageTitle">Privacy Policy</h1>
+      <div class="effective-date" id="effectiveDate"></div>
+    </div>
+    <div class="summary-box">
+      <div class="summary-title" id="summaryTitle"></div>
+      <div class="summary-text" id="summaryText"></div>
+    </div>
+    <div id="sections"></div>
+    <div class="contact-box" id="contactBox">
+      <div class="section-title" id="contactTitle"></div>
+      <div class="section-body"><p id="contactText"></p></div>
+    </div>
+    <div class="technical-note" id="technicalNote"></div>
+  </main>
+
+  <footer>
+    <div>© 2026 TK Olymp</div>
+    <div class="footer-links">
+      <a href="../privacy/" id="footerPrivacy">Privacy Policy</a>
+      <a href="../terms/" id="footerTerms">Terms of Use</a>
+    </div>
+  </footer>
+
+  <script>
+  const CONTENT = {
+    en: {
+      pageTitle: "Privacy Policy",
+      effectiveDate: "Effective date: June 16, 2026",
+      summaryTitle: "Brief summary",
+      summaryText: "The TK Olymp app is a client of the service provided at api.rozpisovnik.cz. We collect only the data necessary to operate the app (authentication, event display, notifications and profile information), and we use Google Firebase to deliver push notifications and basic app analytics.",
+      sections: [
+        { title: "1) What data we collect", body: ["• Authentication token (JWT): stored locally in the device's secure storage to authorize API calls.", "• API data: events, instances, announcements, competitions, user/group information and leaderboards — loaded dynamically from the GraphQL API based on your login.", "• Optional data: if you fill in profile details or change settings in the app, they will be used to improve the user experience."] },
+        { title: "2) Where and how data is stored", body: ["• Network requests go to api.rozpisovnik.cz/graphql. The app does not maintain its own central data storage outside the API provider.", "• JWT is stored in SecureStorage (platform secure storage). To support offline use, the app also caches events, announcements and other API data locally on your device; this cache is cleared when you log out."] },
+        { title: "3) Purpose of processing", body: ["We use data for: authentication, authorization, displaying your events, sending and receiving notifications, leaderboard management and other features you expect from a service client."] },
+        { title: "4) Sharing and third-party processing", body: ["• Data is not sold or shared with third parties for marketing without your consent. We share data only with the API provider and necessary system services (e.g. maps) if you use them.", "• Push notifications are delivered via Google Firebase Cloud Messaging, and the app uses Google Firebase Analytics for basic, aggregated usage statistics. Google processes data associated with these services under its own privacy policy (policies.google.com/privacy)."] },
+        { title: "5) Permissions and local access", body: ["The app requires only necessary permissions (e.g. for displaying maps or receiving notifications). We do not access your contacts, photo gallery or other sensitive resources without explicit permission."] },
+        { title: "6) How long we retain data", body: ["JWT is retained for the token's validity period or until you log out/delete your account. Locally cached API data (events, announcements, etc.) is retained for offline access and removed when you log out. API-side data is governed by the API provider's policy."] },
+        { title: "7) Your rights", body: ["You have the right to request access to your data, correction or deletion. For these requests, contact the service administrator or use the API provider's contact channels."] },
+        { title: "8) Policy changes", body: ["The policy may be updated. We recommend occasionally checking the effective date."] },
+      ],
+      contactTitle: "Contact",
+      contactText: "If you have a question about data protection or a deletion request, contact the service administrator: tkolymp.cz/kontakt",
+      technicalNote: "Technical details: authentication implementation and GraphQL calls can be found in AuthService and EventServices. Notifications are managed by NotificationManagerService and Firebase Cloud Messaging. Offline caching is managed by OfflineSyncManager and OfflineDataStorage.",
+      breadcrumbHome: "Home",
+    },
+    cs: {
+      pageTitle: "Zásady ochrany osobních údajů",
+      effectiveDate: "Datum účinnosti: 16. června 2026",
+      summaryTitle: "Stručné shrnutí",
+      summaryText: "Aplikace TK Olymp je klientem služby poskytované na api.rozpisovnik.cz. Shromažďujeme pouze nezbytná data pro provoz aplikace (autentizace, zobrazení událostí, oznámení a profilové informace) a používáme Google Firebase pro doručování notifikací a základní analytiku používání aplikace.",
+      sections: [
+        { title: "1) Jaká data shromažďujeme", body: ["• Autentizační token (JWT): ukládán lokálně ve zabezpečeném úložišti zařízení pro autorizaci volání API.", "• Data z API: události, instance, oznámení, soutěže, informace o uživatelích/skupinách a žebříčky — načítají se dynamicky z GraphQL API podle vašeho přihlášení.", "• Volitelná data: pokud v aplikaci vyplníte profilové údaje nebo upravíte nastavení, budou použita ke zlepšení uživatelské zkušenosti."] },
+        { title: "2) Kde a jak jsou data uložena", body: ["• Síťové požadavky směřují na api.rozpisovnik.cz/graphql. Aplikace nevytváří vlastní centrální úložiště dat mimo poskytovatele API.", "• JWT je uložen v SecureStorage (platformní zabezpečené úložiště). Pro podporu offline používání aplikace také ukládá lokálně do zařízení události, oznámení a další data z API; tato lokální kopie se odstraní při odhlášení."] },
+        { title: "3) Účel zpracování", body: ["Data používáme pro: autentizaci, autorizaci, zobrazování vašich událostí, odesílání a přijímání notifikací, správu žebříčků a dalších funkcí, které očekáváte od klienta služby."] },
+        { title: "4) Sdílení a zpracování třetími stranami", body: ["• Data nejsou prodávána ani sdílena s třetími stranami pro marketing bez vašeho souhlasu. Sdílíme pouze s poskytovatelem API a s nezbytnými systémovými službami (např. mapy), pokud je použijete.", "• Push notifikace jsou doručovány přes Google Firebase Cloud Messaging a aplikace používá Google Firebase Analytics pro základní agregované statistiky používání. Google zpracovává data spojená s těmito službami podle vlastních zásad ochrany osobních údajů (policies.google.com/privacy)."] },
+        { title: "5) Oprávnění a lokální přístup", body: ["Aplikace vyžaduje jen nezbytná oprávnění (např. pro zobrazování map nebo příjem notifikací). Nepřistupujeme k vašim kontaktům, fotogaleriím ani dalším citlivým zdrojům bez výslovného povolení."] },
+        { title: "6) Jak dlouho data uchováváme", body: ["JWT je uchováván po dobu platnosti tokenu nebo dokud se odhlásíte/nesmažete účet. Lokálně uložená data z API (události, oznámení apod.) jsou uchovávána pro offline přístup a odstraněna při odhlášení. Data na straně API se řídí politikou poskytovatele API."] },
+        { title: "7) Vaše práva", body: ["Máte právo požadovat přístup ke svým údajům, opravu nebo smazání. Pro tyto požadavky kontaktujte správce služby nebo použijte kontaktní kanály poskytovatele API."] },
+        { title: "8) Změny zásad", body: ["Zásady mohou být aktualizovány. Doporučujeme občas zkontrolovat datum účinnosti."] },
+      ],
+      contactTitle: "Kontakt",
+      contactText: "Máte-li dotaz k ochraně osobních údajů nebo žádost o výmaz, kontaktujte správce služby: tkolymp.cz/kontakt",
+      technicalNote: "Technické detaily: implementace autentizace a volání GraphQL najdete v AuthService a EventServices. Notifikace spravuje NotificationManagerService a Firebase Cloud Messaging. Offline ukládání řeší OfflineSyncManager a OfflineDataStorage.",
+      breadcrumbHome: "Domů",
+    },
+    de: {
+      pageTitle: "Datenschutzrichtlinie",
+      effectiveDate: "Gültigkeitsdatum: 16. Juni 2026",
+      summaryTitle: "Kurze Zusammenfassung",
+      summaryText: "Die TK-Olymp-App ist ein Client des Dienstes unter api.rozpisovnik.cz. Wir erfassen nur die für den Betrieb der App erforderlichen Daten (Authentifizierung, Ereignisanzeige, Benachrichtigungen und Profilinformationen) und nutzen Google Firebase zur Zustellung von Push-Benachrichtigungen und für grundlegende App-Analysen.",
+      sections: [
+        { title: "1) Welche Daten wir erfassen", body: ["• Authentifizierungstoken (JWT): lokal im sicheren Gerätespeicher gespeichert, um API-Aufrufe zu autorisieren.", "• API-Daten: Ereignisse, Instanzen, Ankündigungen, Wettbewerbe, Benutzer-/Gruppeninformationen und Ranglisten — dynamisch aus der GraphQL-API basierend auf Ihrer Anmeldung geladen.", "• Optionale Daten: Wenn Sie in der App Profildaten ausfüllen oder Einstellungen ändern, werden diese zur Verbesserung der Benutzererfahrung verwendet."] },
+        { title: "2) Wo und wie Daten gespeichert werden", body: ["• Netzwerkanfragen gehen an api.rozpisovnik.cz/graphql. Die App unterhält keine eigene zentrale Datenspeicherung außerhalb des API-Anbieters.", "• JWT wird im SecureStorage (plattformsicherer Speicher) gespeichert. Zur Unterstützung der Offline-Nutzung speichert die App außerdem Ereignisse, Ankündigungen und andere API-Daten lokal auf Ihrem Gerät; dieser Cache wird beim Abmelden gelöscht."] },
+        { title: "3) Zweck der Verarbeitung", body: ["Wir verwenden Daten für: Authentifizierung, Autorisierung, Anzeige Ihrer Ereignisse, Senden und Empfangen von Benachrichtigungen, Ranglisten-Verwaltung und andere Funktionen, die Sie von einem Dienst-Client erwarten."] },
+        { title: "4) Weitergabe und Drittanbieterverarbeitung", body: ["• Daten werden nicht ohne Ihre Zustimmung für Marketing an Dritte verkauft oder weitergegeben. Wir teilen Daten nur mit dem API-Anbieter und notwendigen Systemdiensten (z. B. Karten), wenn Sie diese nutzen.", "• Push-Benachrichtigungen werden über Google Firebase Cloud Messaging zugestellt, und die App nutzt Google Firebase Analytics für grundlegende, aggregierte Nutzungsstatistiken. Google verarbeitet die mit diesen Diensten verbundenen Daten gemäß seiner eigenen Datenschutzrichtlinie (policies.google.com/privacy)."] },
+        { title: "5) Berechtigungen und lokaler Zugriff", body: ["Die App benötigt nur notwendige Berechtigungen (z. B. für die Anzeige von Karten oder den Empfang von Benachrichtigungen). Wir greifen ohne ausdrückliche Genehmigung nicht auf Ihre Kontakte, Fotogalerie oder andere sensible Ressourcen zu."] },
+        { title: "6) Wie lange wir Daten aufbewahren", body: ["JWT wird für die Gültigkeitsdauer des Tokens oder bis Sie sich abmelden/Ihr Konto löschen aufbewahrt. Lokal zwischengespeicherte API-Daten (Ereignisse, Ankündigungen usw.) werden für den Offline-Zugriff aufbewahrt und beim Abmelden entfernt. API-seitige Daten unterliegen der Richtlinie des API-Anbieters."] },
+        { title: "7) Ihre Rechte", body: ["Sie haben das Recht, Zugang zu Ihren Daten, Berichtigung oder Löschung zu verlangen. Wenden Sie sich für diese Anfragen an den Dienstadministrator oder nutzen Sie die Kontaktkanäle des API-Anbieters."] },
+        { title: "8) Änderungen der Richtlinie", body: ["Die Richtlinie kann aktualisiert werden. Wir empfehlen, das Gültigkeitsdatum gelegentlich zu überprüfen."] },
+      ],
+      contactTitle: "Kontakt",
+      contactText: "Wenn Sie eine Frage zum Datenschutz oder einen Löschungsantrag haben, wenden Sie sich an den Dienstadministrator: tkolymp.cz/kontakt",
+      technicalNote: "Technische Details: Authentifizierungsimplementierung und GraphQL-Aufrufe finden Sie in AuthService und EventServices. Benachrichtigungen werden vom NotificationManagerService und Firebase Cloud Messaging verwaltet. Die Offline-Zwischenspeicherung erfolgt über OfflineSyncManager und OfflineDataStorage.",
+      breadcrumbHome: "Startseite",
+    },
+    sk: {
+      pageTitle: "Zásady ochrany osobných údajov",
+      effectiveDate: "Dátum účinnosti: 16. júna 2026",
+      summaryTitle: "Stručné zhrnutie",
+      summaryText: "Aplikácia TK Olymp je klientom služby poskytovanej na api.rozpisovnik.cz. Zhromažďujeme iba nevyhnutné údaje na prevádzku aplikácie (autentifikácia, zobrazenie udalostí, oznámenia a profilové informácie) a používame Google Firebase na doručovanie push notifikácií a základnú analytiku používania aplikácie.",
+      sections: [
+        { title: "1) Aké údaje zhromažďujeme", body: ["• Autentifikačný token (JWT): uložený lokálne v zabezpečenom úložisku zariadenia na autorizáciu volaní API.", "• Údaje z API: udalosti, inštancie, oznámenia, súťaže, informácie o používateľoch/skupinách a rebríčky — načítavajú sa dynamicky z GraphQL API podľa vášho prihlásenia.", "• Voliteľné údaje: ak v aplikácii vyplníte profilové údaje alebo upravíte nastavenia, budú použité na zlepšenie používateľského zážitku."] },
+        { title: "2) Kde a ako sú údaje uložené", body: ["• Sieťové požiadavky smerujú na api.rozpisovnik.cz/graphql. Aplikácia nevytvára vlastné centrálne úložisko údajov mimo poskytovateľa API.", "• JWT je uložený v SecureStorage (platformné zabezpečené úložisko). Na podporu offline používania aplikácia tiež lokálne ukladá udalosti, oznámenia a ďalšie údaje z API na vaše zariadenie; táto kópia sa odstráni pri odhlásení."] },
+        { title: "3) Účel spracovania", body: ["Údaje používame na: autentifikáciu, autorizáciu, zobrazovanie vašich udalostí, odosielanie a prijímanie notifikácií, správu rebríčkov a ďalších funkcií, ktoré očakávate od klienta služby."] },
+        { title: "4) Zdieľanie a spracovanie tretími stranami", body: ["• Údaje nie sú predávané ani zdieľané s tretími stranami na marketing bez vášho súhlasu. Údaje zdieľame iba s poskytovateľom API a nevyhnutnými systémovými službami (napr. mapy), ak ich používate.", "• Push notifikácie sú doručované cez Google Firebase Cloud Messaging a aplikácia používa Google Firebase Analytics na základné agregované štatistiky používania. Google spracúva údaje spojené s týmito službami podľa svojich vlastných zásad ochrany osobných údajov (policies.google.com/privacy)."] },
+        { title: "5) Oprávnenia a lokálny prístup", body: ["Aplikácia vyžaduje iba nevyhnutné oprávnenia (napr. na zobrazovanie máp alebo príjem notifikácií). Nepristupujeme k vašim kontaktom, fotogalérii ani iným citlivým zdrojom bez výslovného povolenia."] },
+        { title: "6) Ako dlho údaje uchovávame", body: ["JWT je uchovávaný po dobu platnosti tokenu alebo kým sa neodhlásite/nezmažete účet. Lokálne uložené údaje z API (udalosti, oznámenia atď.) sú uchovávané pre offline prístup a odstránené pri odhlásení. Údaje na strane API sa riadia politikou poskytovateľa API."] },
+        { title: "7) Vaše práva", body: ["Máte právo požadovať prístup k svojim údajom, opravu alebo výmaz. Pre tieto požiadavky kontaktujte správcu služby alebo použite kontaktné kanály poskytovateľa API."] },
+        { title: "8) Zmeny zásad", body: ["Zásady môžu byť aktualizované. Odporúčame príležitostne skontrolovať dátum účinnosti."] },
+      ],
+      contactTitle: "Kontakt",
+      contactText: "Ak máte otázku k ochrane osobných údajov alebo žiadosť o výmaz, kontaktujte správcu služby: tkolymp.cz/kontakt",
+      technicalNote: "Technické detaily: implementácia autentifikácie a volania GraphQL nájdete v AuthService a EventServices. Notifikácie spravuje NotificationManagerService a Firebase Cloud Messaging. Offline ukladanie zabezpečuje OfflineSyncManager a OfflineDataStorage.",
+      breadcrumbHome: "Domov",
+    },
+    sl: {
+      pageTitle: "Politika zasebnosti",
+      effectiveDate: "Datum veljavnosti: 16. junij 2026",
+      summaryTitle: "Kratki povzetek",
+      summaryText: "Aplikacija TK Olymp je odjemalec storitve na api.rozpisovnik.cz. Zbiramo le podatke, ki so nujni za delovanje aplikacije (avtentikacija, prikaz dogodkov, obvestila in profilne informacije), ter uporabljamo Google Firebase za dostavo potisnih obvestil in osnovno analitiko uporabe aplikacije.",
+      sections: [
+        { title: "1) Katere podatke zbiramo", body: ["• Žeton za avtentikacijo (JWT): shranjen lokalno v varnem pomnilniku naprave za avtorizacijo klicev API.", "• Podatki iz API: dogodki, primerki, obvestila, tekmovanja, informacije o uporabnikih/skupinah in lestvice — dinamično naloženo iz GraphQL API glede na vašo prijavo.", "• Neobvezni podatki: če v aplikaciji izpolnite profilne podatke ali spremenite nastavitve, bodo uporabljeni za izboljšanje uporabniške izkušnje."] },
+        { title: "2) Kje in kako so podatki shranjeni", body: ["• Omrežne zahteve gredo na api.rozpisovnik.cz/graphql. Aplikacija ne vzdržuje lastnega centralnega shranjevanja podatkov zunaj ponudnika API.", "• JWT je shranjen v SecureStorage (platformno varno shranišče). Za podporo offline uporabe aplikacija na vašo napravo lokalno shrani tudi dogodke, obvestila in druge podatke iz API; ta lokalna kopija se izbriše ob odjavi."] },
+        { title: "3) Namen obdelave", body: ["Podatke uporabljamo za: avtentikacijo, avtorizacijo, prikaz vaših dogodkov, pošiljanje in prejemanje obvestil, upravljanje lestvic in druge funkcije, ki jih pričakujete od odjemalca storitve."] },
+        { title: "4) Deljenje in obdelava s tretjimi osebami", body: ["• Podatkov brez vašega soglasja ne prodajamo ali delimo s tretjimi osebami za trženje. Podatke delimo samo s ponudnikom API in nujnimi sistemskimi storitvami (npr. zemljevidi), če jih uporabljate.", "• Potisna obvestila so dostavljena prek Google Firebase Cloud Messaging, aplikacija pa uporablja Google Firebase Analytics za osnovne, agregirane statistike uporabe. Google obdeluje podatke, povezane s temi storitvami, v skladu s svojo lastno politiko zasebnosti (policies.google.com/privacy)."] },
+        { title: "5) Dovoljenja in lokalni dostop", body: ["Aplikacija zahteva le nujna dovoljenja (npr. za prikaz zemljevidov ali prejemanje obvestil). Brez izrecnega dovoljenja ne dostopamo do vaših stikov, fotogalerije ali drugih občutljivih virov."] },
+        { title: "6) Kako dolgo hranimo podatke", body: ["JWT se hrani za čas veljavnosti žetona ali dokler se ne odjavite/izbrišete računa. Lokalno shranjeni podatki iz API (dogodki, obvestila itd.) so shranjeni za offline dostop in odstranjeni ob odjavi. Podatki na strani API se ravnajo po pravilih ponudnika API."] },
+        { title: "7) Vaše pravice", body: ["Imate pravico zahtevati dostop do svojih podatkov, popravek ali izbris. Za te zahteve se obrnite na skrbnika storitve ali uporabite kontaktne kanale ponudnika API."] },
+        { title: "8) Spremembe pravilnika", body: ["Pravilnik se lahko posodobi. Priporočamo, da občasno preverite datum veljavnosti."] },
+      ],
+      contactTitle: "Kontakt",
+      contactText: "Če imate vprašanje o varstvu podatkov ali zahtevo za izbris, se obrnite na skrbnika storitve: tkolymp.cz/kontakt",
+      technicalNote: "Tehnične podrobnosti: implementacijo avtentikacije in klice GraphQL najdete v AuthService in EventServices. Obvestila upravljata NotificationManagerService in Firebase Cloud Messaging. Offline predpomnjenje upravljata OfflineSyncManager in OfflineDataStorage.",
+      breadcrumbHome: "Domov",
+    },
+    uk: {
+      pageTitle: "Політика конфіденційності",
+      effectiveDate: "Дата набрання чинності: 16 червня 2026 року",
+      summaryTitle: "Короткий підсумок",
+      summaryText: "Додаток TK Olymp є клієнтом сервісу api.rozpisovnik.cz. Ми збираємо лише ті дані, які необхідні для роботи додатку (автентифікація, відображення заходів, сповіщення та інформація профілю), а також використовуємо Google Firebase для доставки push-сповіщень та базової аналітики використання додатку.",
+      sections: [
+        { title: "1) Які дані ми збираємо", body: ["• Токен автентифікації (JWT): зберігається локально у захищеному сховищі пристрою для авторизації викликів API.", "• Дані з API: заходи, екземпляри, оголошення, змагання, інформація про користувачів/групи та таблиці лідерів — динамічно завантажуються з GraphQL API відповідно до вашого входу.", "• Необов'язкові дані: якщо ви заповнюєте дані профілю або змінюєте налаштування в додатку, вони будуть використані для покращення вашого досвіду."] },
+        { title: "2) Де і як зберігаються дані", body: ["• Мережеві запити надсилаються на api.rozpisovnik.cz/graphql. Додаток не підтримує власного центрального сховища даних поза постачальником API.", "• JWT зберігається в SecureStorage (платформне захищене сховище). Для підтримки роботи без інтернету додаток також локально зберігає на вашому пристрої заходи, оголошення та інші дані з API; ця локальна копія видаляється при виході з системи."] },
+        { title: "3) Мета обробки", body: ["Ми використовуємо дані для: автентифікації, авторизації, відображення ваших заходів, надсилання та отримання сповіщень, керування таблицями лідерів та інших функцій, які ви очікуєте від клієнта сервісу."] },
+        { title: "4) Передача та обробка третіми особами", body: ["• Ми не продаємо і не передаємо дані третім особам для маркетингових цілей без вашої згоди. Ми передаємо дані лише постачальнику API та необхідним системним сервісам (наприклад, картам), якщо ви їх використовуєте.", "• Push-сповіщення доставляються через Google Firebase Cloud Messaging, а додаток використовує Google Firebase Analytics для базової, агрегованої статистики використання. Google обробляє дані, пов'язані з цими сервісами, відповідно до власної політики конфіденційності (policies.google.com/privacy)."] },
+        { title: "5) Дозволи та локальний доступ", body: ["Додаток запитує лише необхідні дозволи (наприклад, для відображення карт або отримання сповіщень). Без явного дозволу ми не отримуємо доступ до ваших контактів, фотогалереї або інших конфіденційних ресурсів."] },
+        { title: "6) Як довго ми зберігаємо дані", body: ["JWT зберігається протягом терміну дії токена або до виходу з системи/видалення акаунта. Локально збережені дані з API (заходи, оголошення тощо) зберігаються для доступу без інтернету та видаляються при виході з системи. Дані на стороні API регулюються правилами постачальника API."] },
+        { title: "7) Ваші права", body: ["Ви маєте право запитувати доступ до своїх даних, їх виправлення або видалення. Для таких запитів зверніться до адміністратора сервісу або скористайтеся контактними каналами постачальника API."] },
+        { title: "8) Зміни до політики", body: ["Політика може оновлюватися. Рекомендуємо час від часу перевіряти дату набрання чинності."] },
+      ],
+      contactTitle: "Контакт",
+      contactText: "Якщо у вас є питання щодо захисту даних або запит на видалення, зверніться до адміністратора сервісу: tkolymp.cz/kontakt",
+      technicalNote: "Технічні деталі: реалізацію автентифікації та виклики GraphQL можна знайти в AuthService та EventServices. Сповіщеннями керують NotificationManagerService та Firebase Cloud Messaging. Кешуванням для роботи без інтернету керують OfflineSyncManager та OfflineDataStorage.",
+      breadcrumbHome: "Головна",
+    },
+    vi: {
+      pageTitle: "Chính sách bảo mật",
+      effectiveDate: "Ngày có hiệu lực: 16 tháng 6 năm 2026",
+      summaryTitle: "Tóm tắt ngắn gọn",
+      summaryText: "Ứng dụng TK Olymp là khách hàng của dịch vụ tại api.rozpisovnik.cz. Chúng tôi chỉ thu thập dữ liệu cần thiết để vận hành ứng dụng (xác thực, hiển thị sự kiện, thông báo và thông tin hồ sơ), và chúng tôi sử dụng Google Firebase để gửi thông báo đẩy và phân tích sử dụng ứng dụng cơ bản.",
+      sections: [
+        { title: "1) Dữ liệu chúng tôi thu thập", body: ["• Mã thông báo xác thực (JWT): được lưu trữ cục bộ trong bộ nhớ an toàn của thiết bị để ủy quyền các lệnh gọi API.", "• Dữ liệu từ API: sự kiện, phiên bản, thông báo, giải đấu, thông tin người dùng/nhóm và bảng xếp hạng — được tải động từ GraphQL API dựa trên đăng nhập của bạn.", "• Dữ liệu tùy chọn: nếu bạn điền thông tin hồ sơ hoặc thay đổi cài đặt trong ứng dụng, chúng sẽ được sử dụng để cải thiện trải nghiệm người dùng."] },
+        { title: "2) Dữ liệu được lưu trữ ở đâu và như thế nào", body: ["• Các yêu cầu mạng đến api.rozpisovnik.cz/graphql. Ứng dụng không duy trì kho lưu trữ dữ liệu trung tâm riêng bên ngoài nhà cung cấp API.", "• JWT được lưu trong SecureStorage (bộ nhớ an toàn của nền tảng). Để hỗ trợ sử dụng ngoại tuyến, ứng dụng cũng lưu trữ cục bộ trên thiết bị của bạn các sự kiện, thông báo và dữ liệu API khác; bộ nhớ đệm này sẽ bị xóa khi bạn đăng xuất."] },
+        { title: "3) Mục đích xử lý", body: ["Chúng tôi sử dụng dữ liệu để: xác thực, ủy quyền, hiển thị sự kiện của bạn, gửi và nhận thông báo, quản lý bảng xếp hạng và các tính năng khác mà bạn mong đợi từ khách hàng dịch vụ."] },
+        { title: "4) Chia sẻ và xử lý bởi bên thứ ba", body: ["• Chúng tôi không bán hoặc chia sẻ dữ liệu với bên thứ ba cho mục đích tiếp thị mà không có sự đồng ý của bạn. Chúng tôi chỉ chia sẻ dữ liệu với nhà cung cấp API và các dịch vụ hệ thống cần thiết (ví dụ: bản đồ), nếu bạn sử dụng chúng.", "• Thông báo đẩy được gửi qua Google Firebase Cloud Messaging, và ứng dụng sử dụng Google Firebase Analytics để thống kê sử dụng cơ bản, tổng hợp. Google xử lý dữ liệu liên quan đến các dịch vụ này theo chính sách bảo mật riêng của họ (policies.google.com/privacy)."] },
+        { title: "5) Quyền và truy cập cục bộ", body: ["Ứng dụng chỉ yêu cầu các quyền cần thiết (ví dụ: để hiển thị bản đồ hoặc nhận thông báo). Không có sự đồng ý rõ ràng, chúng tôi không truy cập danh bạ, thư viện ảnh hoặc tài nguyên nhạy cảm khác của bạn."] },
+        { title: "6) Thời gian lưu trữ dữ liệu", body: ["JWT được lưu trữ trong thời hạn hiệu lực của token hoặc cho đến khi bạn đăng xuất/xóa tài khoản. Dữ liệu API được lưu trữ cục bộ (sự kiện, thông báo, v.v.) được giữ lại để truy cập ngoại tuyến và bị xóa khi bạn đăng xuất. Dữ liệu phía API được điều chỉnh bởi các quy tắc của nhà cung cấp API."] },
+        { title: "7) Quyền của bạn", body: ["Bạn có quyền yêu cầu quyền truy cập vào dữ liệu của mình, sửa chữa hoặc xóa. Để có những yêu cầu này, hãy liên hệ với quản trị viên dịch vụ hoặc sử dụng các kênh liên hệ của nhà cung cấp API."] },
+        { title: "8) Thay đổi chính sách", body: ["Chính sách có thể được cập nhật. Chúng tôi khuyến nghị bạn thỉnh thoảng kiểm tra ngày có hiệu lực."] },
+      ],
+      contactTitle: "Liên hệ",
+      contactText: "Nếu bạn có câu hỏi về bảo vệ dữ liệu hoặc yêu cầu xóa, hãy liên hệ với quản trị viên dịch vụ: tkolymp.cz/kontakt",
+      technicalNote: "Chi tiết kỹ thuật: triển khai xác thực và các cuộc gọi GraphQL có thể được tìm thấy trong AuthService và EventServices. Thông báo được quản lý bởi NotificationManagerService và Firebase Cloud Messaging. Bộ nhớ đệm ngoại tuyến được quản lý bởi OfflineSyncManager và OfflineDataStorage.",
+      breadcrumbHome: "Trang chủ",
+    },
+  };
+
+  const LANG_NAMES = { en: "English", cs: "Česky", de: "Deutsch", sk: "Slovensky", sl: "Slovenščina", uk: "Українська", vi: "Tiếng Việt" };
+
+  function detectLang() {
+    const p = new URLSearchParams(window.location.search).get('lang');
+    if (p && CONTENT[p]) return p;
+    const stored = localStorage.getItem('tkolymp-lang');
+    if (stored && CONTENT[stored]) return stored;
+    const bl = (navigator.language || 'en').split('-')[0];
+    const mapped = bl === 'ua' ? 'uk' : bl;
+    return CONTENT[mapped] ? mapped : 'en';
+  }
+
+  function applyLang(lang) {
+    localStorage.setItem('tkolymp-lang', lang);
+    const C = CONTENT[lang];
+
+    document.getElementById('breadcrumbHome').textContent = C.breadcrumbHome;
+    document.getElementById('breadcrumbCurrent').textContent = C.pageTitle;
+    document.getElementById('pageTitle').textContent = C.pageTitle;
+    document.getElementById('effectiveDate').textContent = C.effectiveDate;
+    document.getElementById('summaryTitle').textContent = C.summaryTitle;
+    document.getElementById('summaryText').textContent = C.summaryText;
+    document.getElementById('contactTitle').textContent = C.contactTitle;
+    document.getElementById('contactText').textContent = C.contactText;
+    document.getElementById('technicalNote').textContent = C.technicalNote;
+    document.getElementById('footerPrivacy').textContent = C.pageTitle;
+    document.getElementById('footerTerms').textContent = lang === 'en' ? 'Terms of Use' : (CONTENT[lang] ? C.pageTitle === C.pageTitle : '');
+
+    // Footer terms label per lang
+    const termsLabels = { en: "Terms of Use", cs: "Podmínky používání", de: "Nutzungsbedingungen", sk: "Podmienky používania", sl: "Pogoji uporabe", uk: "Умови використання", vi: "Điều khoản sử dụng" };
+    document.getElementById('footerTerms').textContent = termsLabels[lang] || "Terms of Use";
+
+    document.getElementById('footerPrivacy').href = `../privacy/?lang=${lang}`;
+    document.getElementById('footerTerms').href = `../terms/?lang=${lang}`;
+    document.getElementById('breadcrumbHome').href = `../?lang=${lang}`;
+    document.title = `${C.pageTitle} – TK Olymp`;
+
+    // Render sections
+    const container = document.getElementById('sections');
+    container.innerHTML = '';
+    C.sections.forEach(sec => {
+      const div = document.createElement('div');
+      div.className = 'doc-section';
+      const h2 = document.createElement('h2');
+      h2.className = 'section-title';
+      h2.textContent = sec.title;
+      div.appendChild(h2);
+      const body = document.createElement('div');
+      body.className = 'section-body';
+      sec.body.forEach(line => {
+        const p = document.createElement('p');
+        p.textContent = line;
+        body.appendChild(p);
+      });
+      div.appendChild(body);
+      container.appendChild(div);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    const url = new URL(window.location);
+    url.searchParams.set('lang', lang);
+    history.replaceState({}, '', url);
+  }
+
+  // Build lang switcher
+  const switcher = document.getElementById('langSwitcher');
+  Object.entries(LANG_NAMES).forEach(([code, name]) => {
+    const btn = document.createElement('button');
+    btn.className = 'lang-btn';
+    btn.dataset.lang = code;
+    btn.textContent = name;
+    btn.onclick = () => applyLang(code);
+    switcher.appendChild(btn);
+  });
+
+  applyLang(detectLang());
+  </script>
+</body>
+</html>

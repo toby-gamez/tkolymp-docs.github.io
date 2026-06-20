@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use – TK Olymp</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="logo">TK Olymp</a>
+    <div class="lang-switcher" id="langSwitcher"></div>
+  </header>
+
+  <main>
+    <div class="breadcrumb"><a href="../" id="breadcrumbHome">Home</a> / <span id="breadcrumbCurrent">Terms of Use</span></div>
+    <div class="doc-header">
+      <h1 class="doc-page-title" id="pageTitle">Terms of Use</h1>
+      <div class="effective-date" id="effectiveDate"></div>
+    </div>
+    <div class="summary-box">
+      <div class="summary-title" id="summaryTitle"></div>
+      <div class="summary-text" id="summaryText"></div>
+    </div>
+    <div id="sections"></div>
+    <div class="contact-box" id="contactBox">
+      <div class="section-title" id="contactTitle"></div>
+      <div class="section-body"><p id="contactText"></p></div>
+    </div>
+  </main>
+
+  <footer>
+    <div>© 2026 TK Olymp</div>
+    <div class="footer-links">
+      <a href="../privacy/" id="footerPrivacy">Privacy Policy</a>
+      <a href="../terms/" id="footerTerms">Terms of Use</a>
+    </div>
+  </footer>
+
+  <script>
+  const CONTENT = {
+    en: {
+      pageTitle: "Terms of Use",
+      effectiveDate: "Effective date: June 16, 2026",
+      summaryTitle: "Brief summary",
+      summaryText: "By using the TK Olymp app you agree to these Terms of Use. The app is a client for the club's services provided via api.rozpisovnik.cz; please also read our Privacy Policy.",
+      sections: [
+        { title: "1) Eligibility and account", body: ["You must have a valid account provided by the club to log in. Minors should use the app under the supervision of a parent or legal guardian. You are responsible for keeping your login credentials confidential."] },
+        { title: "2) Acceptable use", body: ["Use the app only for its intended purpose: viewing your training schedule, events, competitions, leaderboards and related club information. Do not attempt to disrupt the service, access other members' data without authorization, or misuse the API."] },
+        { title: "3) Competitions and registrations", body: ["Information about competitions, registrations and check-ins is provided for convenience and reflects data from the club's service. Always verify important details (dates, locations, deadlines) with the organizer; the app is not responsible for changes made outside it."] },
+        { title: "4) Notifications", body: ["The app sends reminders and announcements via push notifications (Google Firebase Cloud Messaging) and local scheduling. You can disable notifications at any time in your device settings or in the app."] },
+        { title: "5) Availability and liability", body: ["The app is provided \"as is\", without warranty of uninterrupted availability. We are not liable for damages arising from reliance on data displayed in the app, service outages, or third-party service (API provider, Google Firebase) downtime."] },
+        { title: "6) Changes to the app and these terms", body: ["We may update the app and these terms over time. We recommend occasionally checking the effective date. Continued use of the app after changes take effect constitutes acceptance of the updated terms."] },
+        { title: "7) Governing law", body: ["These terms are governed by the laws of the Czech Republic. Any disputes will be resolved under Czech law."] },
+      ],
+      contactTitle: "Contact",
+      contactText: "If you have questions about these terms, contact the service administrator: tkolymp.cz/kontakt",
+      breadcrumbHome: "Home",
+    },
+    cs: {
+      pageTitle: "Podmínky používání",
+      effectiveDate: "Datum účinnosti: 16. června 2026",
+      summaryTitle: "Stručné shrnutí",
+      summaryText: "Používáním aplikace TK Olymp souhlasíte s těmito Podmínkami používání. Aplikace je klientem služeb klubu poskytovaných přes api.rozpisovnik.cz; přečtěte si prosím také naše Zásady ochrany osobních údajů.",
+      sections: [
+        { title: "1) Způsobilost a účet", body: ["Pro přihlášení musíte mít platný účet vytvořený klubem. Nezletilí by měli aplikaci používat pod dohledem rodiče nebo zákonného zástupce. Jste odpovědní za zachování důvěrnosti svých přihlašovacích údajů."] },
+        { title: "2) Přípustné použití", body: ["Aplikaci používejte pouze k jejímu zamýšlenému účelu: prohlížení tréninkového rozvrhu, událostí, soutěží, žebříčků a souvisejících klubových informací. Nepokoušejte se narušovat provoz služby, přistupovat bez oprávnění k datům jiných členů ani zneužívat API."] },
+        { title: "3) Soutěže a registrace", body: ["Informace o soutěžích, registracích a check-inech jsou poskytovány pro pohodlí a odrážejí data ze služby klubu. Důležité údaje (termíny, místa, uzávěrky) si vždy ověřte u organizátora; aplikace nenese odpovědnost za změny provedené mimo ni."] },
+        { title: "4) Notifikace", body: ["Aplikace zasílá připomínky a oznámení prostřednictvím push notifikací (Google Firebase Cloud Messaging) a lokálního plánování. Notifikace můžete kdykoli vypnout v nastavení zařízení nebo v aplikaci."] },
+        { title: "5) Dostupnost a odpovědnost", body: ["Aplikace je poskytována „tak, jak je", bez záruky nepřerušeného provozu. Neodpovídáme za škody vzniklé spoléháním na údaje zobrazené v aplikaci, výpadky služby ani výpadky služeb třetích stran (poskytovatel API, Google Firebase)."] },
+        { title: "6) Změny aplikace a těchto podmínek", body: ["Aplikaci i tyto podmínky můžeme čas od času aktualizovat. Doporučujeme občas zkontrolovat datum účinnosti. Další používání aplikace po nabytí účinnosti změn znamená souhlas s aktualizovanými podmínkami."] },
+        { title: "7) Rozhodné právo", body: ["Tyto podmínky se řídí právním řádem České republiky. Případné spory budou řešeny podle českého práva."] },
+      ],
+      contactTitle: "Kontakt",
+      contactText: "Máte-li dotaz k těmto podmínkám, kontaktujte správce služby: tkolymp.cz/kontakt",
+      breadcrumbHome: "Domů",
+    },
+    de: {
+      pageTitle: "Nutzungsbedingungen",
+      effectiveDate: "Gültigkeitsdatum: 16. Juni 2026",
+      summaryTitle: "Kurze Zusammenfassung",
+      summaryText: "Mit der Nutzung der TK-Olymp-App stimmen Sie diesen Nutzungsbedingungen zu. Die App ist ein Client für die Vereinsdienste über api.rozpisovnik.cz; lesen Sie bitte auch unsere Datenschutzrichtlinie.",
+      sections: [
+        { title: "1) Berechtigung und Konto", body: ["Für die Anmeldung benötigen Sie ein gültiges, vom Verein bereitgestelltes Konto. Minderjährige sollten die App unter Aufsicht eines Elternteils oder Erziehungsberechtigten nutzen. Sie sind für die Vertraulichkeit Ihrer Anmeldedaten verantwortlich."] },
+        { title: "2) Zulässige Nutzung", body: ["Nutzen Sie die App nur für ihren vorgesehenen Zweck: Einsicht in Ihren Trainingsplan, Veranstaltungen, Wettbewerbe, Ranglisten und zugehörige Vereinsinformationen. Versuchen Sie nicht, den Dienst zu stören, ohne Berechtigung auf Daten anderer Mitglieder zuzugreifen oder die API zu missbrauchen."] },
+        { title: "3) Wettbewerbe und Anmeldungen", body: ["Informationen zu Wettbewerben, Anmeldungen und Check-ins werden zur Bequemlichkeit bereitgestellt und spiegeln Daten des Vereinsdienstes wider. Überprüfen Sie wichtige Details (Termine, Orte, Fristen) immer beim Veranstalter; die App ist nicht für Änderungen außerhalb der App verantwortlich."] },
+        { title: "4) Benachrichtigungen", body: ["Die App sendet Erinnerungen und Ankündigungen über Push-Benachrichtigungen (Google Firebase Cloud Messaging) und lokale Planung. Sie können Benachrichtigungen jederzeit in den Geräteeinstellungen oder in der App deaktivieren."] },
+        { title: "5) Verfügbarkeit und Haftung", body: ["Die App wird „wie sie ist" bereitgestellt, ohne Garantie für unterbrechungsfreie Verfügbarkeit. Wir haften nicht für Schäden, die durch das Vertrauen auf in der App angezeigte Daten, Dienstausfälle oder Ausfälle von Drittanbietern (API-Anbieter, Google Firebase) entstehen."] },
+        { title: "6) Änderungen der App und dieser Bedingungen", body: ["Wir können die App und diese Bedingungen im Laufe der Zeit aktualisieren. Wir empfehlen, das Gültigkeitsdatum gelegentlich zu überprüfen. Die fortgesetzte Nutzung der App nach Inkrafttreten von Änderungen gilt als Annahme der aktualisierten Bedingungen."] },
+        { title: "7) Anwendbares Recht", body: ["Diese Bedingungen unterliegen dem Recht der Tschechischen Republik. Etwaige Streitigkeiten werden nach tschechischem Recht beigelegt."] },
+      ],
+      contactTitle: "Kontakt",
+      contactText: "Wenn Sie Fragen zu diesen Bedingungen haben, wenden Sie sich an den Dienstadministrator: tkolymp.cz/kontakt",
+      breadcrumbHome: "Startseite",
+    },
+    sk: {
+      pageTitle: "Podmienky používania",
+      effectiveDate: "Dátum účinnosti: 16. júna 2026",
+      summaryTitle: "Stručné zhrnutie",
+      summaryText: "Používaním aplikácie TK Olymp súhlasíte s týmito Podmienkami používania. Aplikácia je klientom služieb klubu poskytovaných cez api.rozpisovnik.cz; prečítajte si prosím aj naše Zásady ochrany osobných údajov.",
+      sections: [
+        { title: "1) Spôsobilosť a účet", body: ["Na prihlásenie musíte mať platný účet vytvorený klubom. Neplnoletí by mali aplikáciu používať pod dohľadom rodiča alebo zákonného zástupcu. Ste zodpovední za zachovanie dôvernosti svojich prihlasovacích údajov."] },
+        { title: "2) Prípustné použitie", body: ["Aplikáciu používajte len na jej zamýšľaný účel: prehliadanie tréningového rozvrhu, podujatí, súťaží, rebríčkov a súvisiacich klubových informácií. Nepokúšajte sa narúšať prevádzku služby, pristupovať bez oprávnenia k údajom iných členov ani zneužívať API."] },
+        { title: "3) Súťaže a registrácie", body: ["Informácie o súťažiach, registráciách a check-inoch sú poskytované pre pohodlie a odrážajú údaje zo služby klubu. Dôležité údaje (termíny, miesta, uzávierky) si vždy overte u organizátora; aplikácia nezodpovedá za zmeny vykonané mimo nej."] },
+        { title: "4) Notifikácie", body: ["Aplikácia zasiela pripomienky a oznámenia prostredníctvom push notifikácií (Google Firebase Cloud Messaging) a lokálneho plánovania. Notifikácie môžete kedykoľvek vypnúť v nastaveniach zariadenia alebo v aplikácii."] },
+        { title: "5) Dostupnosť a zodpovednosť", body: ["Aplikácia je poskytovaná „tak, ako je", bez záruky neprerušenej dostupnosti. Nezodpovedáme za škody vzniknuté spoliehaním sa na údaje zobrazené v aplikácii, výpadky služby ani výpadky služieb tretích strán (poskytovateľ API, Google Firebase)."] },
+        { title: "6) Zmeny aplikácie a týchto podmienok", body: ["Aplikáciu aj tieto podmienky môžeme časom aktualizovať. Odporúčame príležitostne skontrolovať dátum účinnosti. Ďalšie používanie aplikácie po nadobudnutí účinnosti zmien znamená súhlas s aktualizovanými podmienkami."] },
+        { title: "7) Rozhodné právo", body: ["Tieto podmienky sa riadia právnym poriadkom Českej republiky. Prípadné spory budú riešené podľa českého práva."] },
+      ],
+      contactTitle: "Kontakt",
+      contactText: "Ak máte otázku k týmto podmienkam, kontaktujte správcu služby: tkolymp.cz/kontakt",
+      breadcrumbHome: "Domov",
+    },
+    sl: {
+      pageTitle: "Pogoji uporabe",
+      effectiveDate: "Datum veljavnosti: 16. junij 2026",
+      summaryTitle: "Kratki povzetek",
+      summaryText: "Z uporabo aplikacije TK Olymp soglašate s temi Pogoji uporabe. Aplikacija je odjemalec klubskih storitev, ki jih ponuja api.rozpisovnik.cz; prosimo, preberite tudi našo Politiko zasebnosti.",
+      sections: [
+        { title: "1) Upravičenost in račun", body: ["Za prijavo morate imeti veljaven račun, ki ga ustvari klub. Mladoletniki naj aplikacijo uporabljajo pod nadzorom starša ali zakonitega skrbnika. Sami ste odgovorni za zaupnost svojih podatkov za prijavo."] },
+        { title: "2) Dovoljena uporaba", body: ["Aplikacijo uporabljajte le za njen predvideni namen: ogled vadbenega urnika, dogodkov, tekmovanj, lestvic in povezanih klubskih informacij. Ne poskušajte motiti delovanja storitve, brez dovoljenja dostopati do podatkov drugih članov ali zlorabljati API."] },
+        { title: "3) Tekmovanja in prijave", body: ["Informacije o tekmovanjih, prijavah in prijavah ob prihodu so na voljo zaradi udobja in odražajo podatke klubske storitve. Pomembne podrobnosti (datume, lokacije, roke) vedno preverite pri organizatorju; aplikacija ni odgovorna za spremembe, izvedene zunaj nje."] },
+        { title: "4) Obvestila", body: ["Aplikacija pošilja opomnike in obvestila prek potisnih obvestil (Google Firebase Cloud Messaging) in lokalnega razvrščanja. Obvestila lahko kadar koli izklopite v nastavitvah naprave ali v aplikaciji."] },
+        { title: "5) Razpoložljivost in odgovornost", body: ["Aplikacija je na voljo „takšna, kakršna je", brez garancije za neprekinjeno delovanje. Ne odgovarjamo za škodo, ki izhaja iz zanašanja na podatke, prikazane v aplikaciji, izpadov storitve ali izpadov storitev tretjih oseb (ponudnik API, Google Firebase)."] },
+        { title: "6) Spremembe aplikacije in teh pogojev", body: ["Aplikacijo in te pogoje lahko sčasoma posodobimo. Priporočamo, da občasno preverite datum veljavnosti. Nadaljnja uporaba aplikacije po uveljavitvi sprememb pomeni sprejetje posodobljenih pogojev."] },
+        { title: "7) Pravo, ki se uporablja", body: ["Ti pogoji se urejajo po pravu Republike Češke. Morebitni spori bodo reševani po češkem pravu."] },
+      ],
+      contactTitle: "Kontakt",
+      contactText: "Če imate vprašanje o teh pogojih, se obrnite na skrbnika storitve: tkolymp.cz/kontakt",
+      breadcrumbHome: "Domov",
+    },
+    uk: {
+      pageTitle: "Умови використання",
+      effectiveDate: "Дата набрання чинності: 16 червня 2026 року",
+      summaryTitle: "Короткий підсумок",
+      summaryText: "Користуючись додатком TK Olymp, ви погоджуєтеся з цими Умовами використання. Додаток є клієнтом клубних сервісів, що надаються через api.rozpisovnik.cz; будь ласка, ознайомтеся також з нашою Політикою конфіденційності.",
+      sections: [
+        { title: "1) Право на користування та облікові записи", body: ["Для входу вам потрібен дійсний обліковий запис, наданий клубом. Неповнолітні мають користуватися додатком під наглядом батьків або законного опікуна. Ви відповідаєте за збереження конфіденційності своїх облікових даних."] },
+        { title: "2) Прийнятне використання", body: ["Використовуйте додаток лише за призначенням: для перегляду тренувального розкладу, заходів, змагань, таблиць лідерів та пов'язаної клубної інформації. Не намагайтеся порушувати роботу сервісу, отримувати неавторизований доступ до даних інших членів або зловживати API."] },
+        { title: "3) Змагання та реєстрації", body: ["Інформація про змагання, реєстрації та реєстрацію на місці надається для зручності та відображає дані клубного сервісу. Завжди перевіряйте важливі деталі (дати, місця, дедлайни) з організатором; додаток не несе відповідальності за зміни, внесені поза ним."] },
+        { title: "4) Сповіщення", body: ["Додаток надсилає нагадування та оголошення через push-сповіщення (Google Firebase Cloud Messaging) та локальне планування. Ви можете вимкнути сповіщення в будь-який час у налаштуваннях пристрою або в додатку."] },
+        { title: "5) Доступність та відповідальність", body: ["Додаток надається «як є», без гарантії безперебійної доступності. Ми не несемо відповідальності за збитки, що виникли через довіру до даних, відображених у додатку, перебої в роботі сервісу чи перебої в роботі сторонніх сервісів (постачальник API, Google Firebase)."] },
+        { title: "6) Зміни до додатку та цих умов", body: ["Ми можемо час від часу оновлювати додаток і ці умови. Рекомендуємо час від часу перевіряти дату набрання чинності. Подальше використання додатку після набрання змінами чинності означає прийняття оновлених умов."] },
+        { title: "7) Застосовне право", body: ["Ці умови регулюються законодавством Чеської Республіки. Будь-які спори вирішуватимуться відповідно до чеського права."] },
+      ],
+      contactTitle: "Контакт",
+      contactText: "Якщо у вас є питання щодо цих умов, зверніться до адміністратора сервісу: tkolymp.cz/kontakt",
+      breadcrumbHome: "Головна",
+    },
+    vi: {
+      pageTitle: "Điều khoản sử dụng",
+      effectiveDate: "Ngày có hiệu lực: 16 tháng 6 năm 2026",
+      summaryTitle: "Tóm tắt ngắn gọn",
+      summaryText: "Khi sử dụng ứng dụng TK Olymp, bạn đồng ý với các Điều khoản sử dụng này. Ứng dụng là khách hàng của các dịch vụ câu lạc bộ được cung cấp qua api.rozpisovnik.cz; vui lòng đọc thêm Chính sách bảo mật của chúng tôi.",
+      sections: [
+        { title: "1) Điều kiện và tài khoản", body: ["Bạn phải có tài khoản hợp lệ do câu lạc bộ cung cấp để đăng nhập. Người chưa thành niên nên sử dụng ứng dụng dưới sự giám sát của cha mẹ hoặc người giám hộ hợp pháp. Bạn có trách nhiệm giữ bí mật thông tin đăng nhập của mình."] },
+        { title: "2) Sử dụng được phép", body: ["Chỉ sử dụng ứng dụng cho mục đích dự kiến: xem lịch tập luyện, sự kiện, giải đấu, bảng xếp hạng và thông tin câu lạc bộ liên quan. Không cố gắng làm gián đoạn dịch vụ, truy cập dữ liệu của thành viên khác mà không được phép, hoặc lạm dụng API."] },
+        { title: "3) Giải đấu và đăng ký", body: ["Thông tin về giải đấu, đăng ký và check-in được cung cấp để thuận tiện và phản ánh dữ liệu từ dịch vụ của câu lạc bộ. Luôn xác minh các chi tiết quan trọng (ngày, địa điểm, hạn chót) với người tổ chức; ứng dụng không chịu trách nhiệm về các thay đổi được thực hiện bên ngoài ứng dụng."] },
+        { title: "4) Thông báo", body: ["Ứng dụng gửi nhắc nhở và thông báo qua thông báo đẩy (Google Firebase Cloud Messaging) và lập lịch cục bộ. Bạn có thể tắt thông báo bất cứ lúc nào trong cài đặt thiết bị hoặc trong ứng dụng."] },
+        { title: "5) Tính khả dụng và trách nhiệm pháp lý", body: ["Ứng dụng được cung cấp \"nguyên trạng\", không có bảo đảm về tính khả dụng liên tục. Chúng tôi không chịu trách nhiệm về thiệt hại phát sinh từ việc tin tưởng vào dữ liệu hiển thị trong ứng dụng, sự cố dịch vụ, hoặc sự cố của dịch vụ bên thứ ba (nhà cung cấp API, Google Firebase)."] },
+        { title: "6) Thay đổi ứng dụng và các điều khoản này", body: ["Chúng tôi có thể cập nhật ứng dụng và các điều khoản này theo thời gian. Chúng tôi khuyến nghị bạn thỉnh thoảng kiểm tra ngày có hiệu lực. Việc tiếp tục sử dụng ứng dụng sau khi các thay đổi có hiệu lực đồng nghĩa với việc chấp nhận các điều khoản đã cập nhật."] },
+        { title: "7) Luật áp dụng", body: ["Các điều khoản này được điều chỉnh theo luật pháp của Cộng hòa Séc. Mọi tranh chấp sẽ được giải quyết theo luật pháp Séc."] },
+      ],
+      contactTitle: "Liên hệ",
+      contactText: "Nếu bạn có câu hỏi về các điều khoản này, hãy liên hệ với quản trị viên dịch vụ: tkolymp.cz/kontakt",
+      breadcrumbHome: "Trang chủ",
+    },
+  };
+
+  const LANG_NAMES = { en: "English", cs: "Česky", de: "Deutsch", sk: "Slovensky", sl: "Slovenščina", uk: "Українська", vi: "Tiếng Việt" };
+
+  function detectLang() {
+    const p = new URLSearchParams(window.location.search).get('lang');
+    if (p && CONTENT[p]) return p;
+    const stored = localStorage.getItem('tkolymp-lang');
+    if (stored && CONTENT[stored]) return stored;
+    const bl = (navigator.language || 'en').split('-')[0];
+    const mapped = bl === 'ua' ? 'uk' : bl;
+    return CONTENT[mapped] ? mapped : 'en';
+  }
+
+  function applyLang(lang) {
+    localStorage.setItem('tkolymp-lang', lang);
+    const C = CONTENT[lang];
+
+    document.getElementById('breadcrumbHome').textContent = C.breadcrumbHome;
+    document.getElementById('breadcrumbCurrent').textContent = C.pageTitle;
+    document.getElementById('pageTitle').textContent = C.pageTitle;
+    document.getElementById('effectiveDate').textContent = C.effectiveDate;
+    document.getElementById('summaryTitle').textContent = C.summaryTitle;
+    document.getElementById('summaryText').textContent = C.summaryText;
+    document.getElementById('contactTitle').textContent = C.contactTitle;
+    document.getElementById('contactText').textContent = C.contactText;
+
+    const privacyLabels = { en: "Privacy Policy", cs: "Zásady ochrany osobních údajů", de: "Datenschutzrichtlinie", sk: "Zásady ochrany osobných údajov", sl: "Politika zasebnosti", uk: "Політика конфіденційності", vi: "Chính sách bảo mật" };
+    document.getElementById('footerPrivacy').textContent = privacyLabels[lang] || "Privacy Policy";
+    document.getElementById('footerTerms').textContent = C.pageTitle;
+    document.getElementById('footerPrivacy').href = `../privacy/?lang=${lang}`;
+    document.getElementById('footerTerms').href = `../terms/?lang=${lang}`;
+    document.getElementById('breadcrumbHome').href = `../?lang=${lang}`;
+    document.title = `${C.pageTitle} – TK Olymp`;
+
+    const container = document.getElementById('sections');
+    container.innerHTML = '';
+    C.sections.forEach(sec => {
+      const div = document.createElement('div');
+      div.className = 'doc-section';
+      const h2 = document.createElement('h2');
+      h2.className = 'section-title';
+      h2.textContent = sec.title;
+      div.appendChild(h2);
+      const body = document.createElement('div');
+      body.className = 'section-body';
+      sec.body.forEach(line => {
+        const p = document.createElement('p');
+        p.textContent = line;
+        body.appendChild(p);
+      });
+      div.appendChild(body);
+      container.appendChild(div);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    const url = new URL(window.location);
+    url.searchParams.set('lang', lang);
+    history.replaceState({}, '', url);
+  }
+
+  const switcher = document.getElementById('langSwitcher');
+  Object.entries(LANG_NAMES).forEach(([code, name]) => {
+    const btn = document.createElement('button');
+    btn.className = 'lang-btn';
+    btn.dataset.lang = code;
+    btn.textContent = name;
+    btn.onclick = () => applyLang(code);
+    switcher.appendChild(btn);
+  });
+
+  applyLang(detectLang());
+  </script>
+</body>
+</html>
