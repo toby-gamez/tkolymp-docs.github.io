@@ -55,4 +55,4 @@ All language content is embedded directly in each HTML file as a JavaScript obje
 
 ## Effective date
 
-Current effective date: **June 16, 2026**
+Current effective dates: Privacy Policy **November 5, 2026**, Terms of Use **June 16, 2026**
